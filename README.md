@@ -4,15 +4,7 @@
 >
 > [English version / 英文版](README.en.md)
 
-🌐 **在线浏览：[jasonchiang1916.github.io/chinese-dynasty-costumes](https://jasonchiang1916.github.io/chinese-dynasty-costumes/)** — 按朝代筛选、搜索款式、点图放大
-
-## 在线预览
-
-不用下载，直接打开预览站浏览全部 760 张图：
-
-- **地址：** https://jasonchiang1916.github.io/chinese-dynasty-costumes/
-- **功能：** 19 个朝代按钮筛选、搜索框按朝代 / 槽位 / 款式搜索、点图放大查看、键盘方向键翻页
-- **部署：** GitHub Pages（免费），源码就是本仓库的 `index.html` + `catalog.js`
+🌐 **在线浏览：[jasonchiang1916.github.io/chinese-dynasty-costumes](https://jasonchiang1916.github.io/chinese-dynasty-costumes/)** — 按朝代筛选、搜索款式、点图放大、键盘方向键翻页；预览站由 GitHub Pages 免费托管，源码为本仓库的 `index.html` + `catalog.js`
 
 ## 项目简介
 

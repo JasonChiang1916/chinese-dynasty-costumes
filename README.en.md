@@ -4,15 +4,7 @@
 >
 > [中文版 / Chinese version](README.md)
 
-🌐 **Browse online: [jasonchiang1916.github.io/chinese-dynasty-costumes](https://jasonchiang1916.github.io/chinese-dynasty-costumes/)** — filter by dynasty, search styles, click to enlarge
-
-## Live preview
-
-Browse all 760 plates online without downloading:
-
-- **URL:** https://jasonchiang1916.github.io/chinese-dynasty-costumes/
-- **Features:** 19 dynasty filters, search by dynasty / slot / style, click to enlarge, arrow keys to flip through
-- **Hosting:** GitHub Pages (free); the site is `index.html` + `catalog.js` in this repository
+🌐 **Browse online: [jasonchiang1916.github.io/chinese-dynasty-costumes](https://jasonchiang1916.github.io/chinese-dynasty-costumes/)** — filter by dynasty, search styles, click to enlarge, arrow keys to flip through; hosted free on GitHub Pages, the site is `index.html` + `catalog.js` in this repository
 
 ## About
 
