@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中国古代王朝服装图鉴 · Chinese Dynasty Costume Atlas</title>
+<meta name="description" content="19 个朝代 × 40 套 = 760 套写实服装图。Chinese Dynasty Costume Atlas: 760 photorealistic costume plates across 19 dynasties.">
+<style>
+  :root { --bg:#f4f2ee; --card:#fff; --ink:#222; --muted:#777; --line:#e3e0d9; --accent:#8c2f2f; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); }
+  header { background:#1e1a17; color:#f5f2ec; padding:28px 20px 20px; }
+  header h1 { margin:0 0 6px; font-size:24px; letter-spacing:2px; }
+  header p { margin:4px 0; color:#c9c2b8; font-size:14px; }
+  header a { color:#e8c87a; }
+  .toolbar { position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--line); padding:12px 20px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .toolbar input { flex:1 1 220px; padding:9px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; background:#fff; }
+  .dyn { display:flex; flex-wrap:wrap; gap:6px; padding:12px 20px 0; }
+  .dyn button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 13px; font-size:13px; cursor:pointer; }
+  .dyn button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .count { padding:10px 20px 0; color:var(--muted); font-size:13px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; padding:14px 20px 30px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; cursor:pointer; }
+  .card img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; background:#ddd; }
+  .card figcaption { padding:8px 10px; font-size:12.5px; line-height:1.5; }
+  .card figcaption small { color:var(--muted); display:block; }
+  .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; flex-direction:column; z-index:50; padding:20px; }
+  .lightbox.open { display:flex; }
+  .lightbox img { max-width:92vw; max-height:80vh; object-fit:contain; background:#ddd; }
+  .lightbox p { color:#eee; margin:12px 0 0; font-size:14px; text-align:center; }
+  .lightbox .nav { margin-top:12px; display:flex; gap:10px; }
+  .lightbox button { background:#fff; border:0; border-radius:8px; padding:8px 16px; cursor:pointer; font-size:14px; }
+  footer { border-top:1px solid var(--line); padding:18px 20px 28px; color:var(--muted); font-size:13px; line-height:1.8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>中国古代王朝服装图鉴</h1>
+  <p>Chinese Dynasty Costume Atlas · 19 朝 × 40 套 = 760 套写实服装图</p>
+  <p>无头幽灵穿着展示 · 浅灰背景 · 正面全身 · 写实 · <a href="https://github.com/JasonChiang1916/chinese-dynasty-costumes">GitHub 仓库</a> · MIT License</p>
+</header>
+<div class="toolbar">
+  <input id="q" type="search" placeholder="搜索：朝代、槽位或款式，例如 唐 M01、皇后、婚庆…">
+</div>
+<div class="dyn" id="dyn"></div>
+<div class="count" id="count"></div>
+<main class="grid" id="grid"></main>
+<div class="lightbox" id="lb">
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+  <div class="nav">
+    <button id="prevBtn">← 上一张</button>
+    <button id="nextBtn">下一张 →</button>
+    <button id="closeBtn">关闭 ✕</button>
+  </div>
+</div>
+<footer>
+  本图鉴为 AI 生成的服饰复原示意，形制以传世实物、壁画与文献记载为依据，个别细节为艺术化还原，不作为考古定论。<br>
+  This atlas is an AI-generated visual reconstruction of historical dress; details are artistic reconstructions, not archaeological conclusions.<br>
+  儿童服装均为正常历史童装展示。Children's plates show ordinary historical children's clothing only.
+</footer>
+<script src="catalog.js"></script>
+<script>
+const dynasties = Object.keys(CATALOG);
+let currentDyn = '全部', currentList = [];
+const grid = document.getElementById('grid');
+const countEl = document.getElementById('count');
+const dynEl = document.getElementById('dyn');
+
+['全部', ...dynasties].forEach(d => {
+  const b = document.createElement('button');
+  b.textContent = d === '全部' ? '全部 760' : d + ' · ' + CATALOG[d].length;
+  if (d === '全部') b.classList.add('on');
+  b.onclick = () => {
+    currentDyn = d;
+    document.querySelectorAll('.dyn button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    render();
+  };
+  dynEl.appendChild(b);
+});
+
+document.getElementById('q').addEventListener('input', render);
+
+function render() {
+  const q = document.getElementById('q').value.trim();
+  currentList = [];
+  for (const d of dynasties) {
+    if (currentDyn !== '全部' && d !== currentDyn) continue;
+    for (const f of CATALOG[d]) {
+      if (q && !((d + f).includes(q))) continue;
+      currentList.push({ d, f });
+    }
+  }
+  countEl.textContent = '共 ' + currentList.length + ' 张' + (currentDyn !== '全部' ? ' · ' + currentDyn : '');
+  grid.innerHTML = '';
+  for (let i = 0; i < currentList.length; i++) {
+    const { d, f } = currentList[i];
+    const fig = document.createElement('figure');
+    fig.className = 'card';
+    fig.innerHTML = '<img loading="lazy" src="' + encodeURI(d + '/' + f) + '" alt="' + f + '">' +
+      '<figcaption>' + f.replace(/\.webp$/, '') + '<small>' + d + '</small></figcaption>';
+    fig.onclick = () => openLb(i);
+    grid.appendChild(fig);
+  }
+}
+
+let lbIndex = 0;
+const lb = document.getElementById('lb');
+function openLb(i) {
+  lbIndex = i;
+  showLb();
+  lb.classList.add('open');
+}
+function showLb() {
+  const { d, f } = currentList[lbIndex];
+  document.getElementById('lbImg').src = encodeURI(d + '/' + f);
+  document.getElementById('lbImg').alt = f;
+  document.getElementById('lbCap').textContent = f + ' · ' + d + '（' + (lbIndex + 1) + ' / ' + currentList.length + '）';
+}
+document.getElementById('prevBtn').onclick = () => { lbIndex = (lbIndex - 1 + currentList.length) % currentList.length; showLb(); };
+document.getElementById('nextBtn').onclick = () => { lbIndex = (lbIndex + 1) % currentList.length; showLb(); };
+document.getElementById('closeBtn').onclick = () => lb.classList.remove('open');
+lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') lb.classList.remove('open');
+  if (e.key === 'ArrowLeft') document.getElementById('prevBtn').click();
+  if (e.key === 'ArrowRight') document.getElementById('nextBtn').click();
+});
+render();
+</script>
+</body>
+</html>

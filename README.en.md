@@ -10,6 +10,8 @@ This repository contains the complete **Chinese Dynasty Costume Atlas**: 760 cos
 
 All images are AI-generated photorealistic costume plates following one consistent display standard: the "headless ghost mannequin" presentation — light grey background, full-body front view, garments holding their worn shape on their own, with no head, no face, no hands, no mannequin body, no stand, no hanger and no text in the image.
 
+**Browse online:** https://jasonchiang1916.github.io/chinese-dynasty-costumes/ (filter by dynasty, search by style, click to enlarge; enable GitHub Pages under repo Settings → Pages first)
+
 ## Dynasties (19 · 40 outfits each)
 
 | Dynasty | Period | Outfits |
