@@ -1,8 +1,8 @@
 // Auto-generated from the 760-plate atlas; do not edit by hand.
 const CATALOG = {
  "三国": [
-  "三国_儿童女_G01_公主礼服_v2.webp",
-  "三国_儿童女_G02_贵族小姐服_v2.webp",
+  "三国_儿童女_G01_公主礼服_v3.webp",
+  "三国_儿童女_G02_贵族小姐服_v3.webp",
   "三国_儿童女_G03_官宦小姐常服.webp",
   "三国_儿童女_G04_闺阁少女日常服.webp",
   "三国_儿童女_G05_平民女童日常服_v2.webp",

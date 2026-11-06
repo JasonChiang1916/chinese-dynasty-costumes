@@ -4,13 +4,21 @@
 >
 > [中文版 / Chinese version](README.md)
 
+🌐 **Browse online: [jasonchiang1916.github.io/chinese-dynasty-costumes](https://jasonchiang1916.github.io/chinese-dynasty-costumes/)** — filter by dynasty, search styles, click to enlarge
+
+## Live preview
+
+Browse all 760 plates online without downloading:
+
+- **URL:** https://jasonchiang1916.github.io/chinese-dynasty-costumes/
+- **Features:** 19 dynasty filters, search by dynasty / slot / style, click to enlarge, arrow keys to flip through
+- **Hosting:** GitHub Pages (free); the site is `index.html` + `catalog.js` in this repository
+
 ## About
 
 This repository contains the complete **Chinese Dynasty Costume Atlas**: 760 costume plates covering 19 dynasties, from the Shang dynasty to the Republic of China. Each dynasty includes 10 outfits for adult men, 10 for adult women, 10 for boys and 10 for girls — 40 outfits per dynasty — presenting the evolution of Chinese dress from the Bronze Age to the modern era.
 
 All images are AI-generated photorealistic costume plates following one consistent display standard: the "headless ghost mannequin" presentation — light grey background, full-body front view, garments holding their worn shape on their own, with no head, no face, no hands, no mannequin body, no stand, no hanger and no text in the image.
-
-**Browse online:** https://jasonchiang1916.github.io/chinese-dynasty-costumes/ (filter by dynasty, search by style, click to enlarge; enable GitHub Pages under repo Settings → Pages first)
 
 ## Dynasties (19 · 40 outfits each)
 
@@ -60,6 +68,8 @@ chinese-dynasty-costumes/
 ├── README.md          # Chinese introduction (this file's counterpart)
 ├── README.en.md       # This file
 ├── LICENSE            # MIT License
+├── index.html         # Live preview site (GitHub Pages)
+├── catalog.js         # 760-plate catalog data (auto-generated)
 ├── 商/                 # Shang
 │   ├── 商_成年男_M01_君主大礼服.webp
 │   ├── 商_成年女_F01_皇后大礼服.webp

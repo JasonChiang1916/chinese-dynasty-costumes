@@ -4,13 +4,21 @@
 >
 > [English version / 英文版](README.en.md)
 
+🌐 **在线浏览：[jasonchiang1916.github.io/chinese-dynasty-costumes](https://jasonchiang1916.github.io/chinese-dynasty-costumes/)** — 按朝代筛选、搜索款式、点图放大
+
+## 在线预览
+
+不用下载，直接打开预览站浏览全部 760 张图：
+
+- **地址：** https://jasonchiang1916.github.io/chinese-dynasty-costumes/
+- **功能：** 19 个朝代按钮筛选、搜索框按朝代 / 槽位 / 款式搜索、点图放大查看、键盘方向键翻页
+- **部署：** GitHub Pages（免费），源码就是本仓库的 `index.html` + `catalog.js`
+
 ## 项目简介
 
 本仓库收录 **中国古代王朝服装图鉴** 全部 760 张服装图，覆盖从商朝到中华民国共 19 个朝代。每一朝代包含成年男、成年女、儿童男、儿童女各 10 套，共 40 套，系统呈现中国服饰从先秦到近现代的形制演变。
 
 所有图片均为 AI 生成的写实风格服装展示图，采用统一的“无头幽灵穿着展示”标准：浅灰背景、正面全身、衣服自己撑出穿着形状，无头、无脸、无手、无假模特、无支架、无衣架、无画面文字。
-
-**在线浏览：** https://jasonchiang1916.github.io/chinese-dynasty-costumes/ （按朝代筛选、搜索款式、点图放大；需在仓库 Settings → Pages 开启 GitHub Pages 后生效）
 
 ## 收录朝代（19 朝 · 每朝 40 套）
 
@@ -60,6 +68,8 @@ chinese-dynasty-costumes/
 ├── README.md          # 本文件（中文）
 ├── README.en.md       # 英文版介绍
 ├── LICENSE            # MIT 许可证
+├── index.html         # 在线预览站（GitHub Pages）
+├── catalog.js         # 760 张图目录数据（自动生成）
 ├── 商/
 │   ├── 商_成年男_M01_君主大礼服.webp
 │   ├── 商_成年女_F01_皇后大礼服.webp
